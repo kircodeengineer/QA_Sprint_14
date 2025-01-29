@@ -1,7 +1,7 @@
 import pytest
 import requests
 import urls
-from courier_login_data_generator import generate_random_payload
+from data_generators import generate_random_payload
 
 class TestCourierCreate:
     def test_new_courier_success(self, response_login_pass):

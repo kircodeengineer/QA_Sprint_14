@@ -44,3 +44,17 @@ def register_new_courier_and_return_login_password():
 
     # возвращаем список
     return response, login_pass
+
+def generate_random_order_payload(color):
+    payload = {
+         "firstName": "Naruto",
+        "lastName": "Uchiha",
+        "address": "Konoha, 142 apt.",
+        "metroStation": 4,
+        "phone": "+7 800 355 35 35",
+        "rentTime": 5,
+        "deliveryDate": "2020-06-06",
+        "comment": "Saske, come back to Konoha",
+        "color": color
+    }
+    return payload

@@ -1,6 +1,6 @@
 import requests
 import pytest
-from courier_login_data_generator import register_new_courier_and_return_login_password
+from data_generators import register_new_courier_and_return_login_password
 import urls
 
 @pytest.fixture()
