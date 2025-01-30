@@ -13,6 +13,6 @@ def response_login_pass():
         "password": login_pass[1]
     }
 
-    courier_signin = requests.post(urls.main_url + urls.Hands.login, data=sign_in)
+    courier_signin = requests.post(urls.MAIN_URL + urls.Hands.LOGIN, data=sign_in)
     courier_id = courier_signin.json()["id"]
-    requests.delete(urls.main_url + urls.Hands.login + str(courier_id))
+    requests.delete(urls.MAIN_URL + urls.Hands.LOGIN + str(courier_id))

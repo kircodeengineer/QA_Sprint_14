@@ -1,6 +1,6 @@
-main_url = 'https://qa-scooter.praktikum-services.ru'
+MAIN_URL = 'https://qa-scooter.praktikum-services.ru'
 
 class Hands:
-    login = '/api/v1/courier/login'
-    courier = '/api/v1/courier/'
-    orders = '/api/v1/orders/'
+    LOGIN = '/api/v1/courier/login'
+    COURIER = '/api/v1/courier/'
+    ORDERS = '/api/v1/orders/'

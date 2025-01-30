@@ -34,7 +34,7 @@ def register_new_courier_and_return_login_password():
     payload = generate_random_payload()
 
     # отправляем запрос на регистрацию курьера и сохраняем ответ в переменную response
-    response = requests.post(urls.main_url + urls.Hands.courier, data=payload)
+    response = requests.post(urls.MAIN_URL + urls.Hands.COURIER, data=payload)
 
     # если регистрация прошла успешно (код ответа 201), добавляем в список логин и пароль курьера
     if response.status_code == 201:

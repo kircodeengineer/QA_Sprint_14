@@ -2,6 +2,7 @@ import allure
 import pytest
 import requests
 import urls
+from data import StatusCodes, Messages
 
 class TestLoginCourier:
     @allure.title('Проверка успешной Авторизации курьера')  # декораторы
@@ -18,7 +19,7 @@ class TestLoginCourier:
             "password": login_pass[1]
         }
 
-        response = requests.post(urls.main_url + urls.Hands.login, json=payload)
+        response = requests.post(urls.MAIN_URL + urls.Hands.LOGIN, json=payload)
 
         assert response.status_code == 200
         assert "id" in response.json()
@@ -38,10 +39,10 @@ class TestLoginCourier:
 
         payload.pop(missing_field)
 
-        response = requests.post(urls.main_url + urls.Hands.login, json=payload)
+        response = requests.post(urls.MAIN_URL + urls.Hands.LOGIN, json=payload)
 
-        assert response.status_code == 400
-        assert response.json()["message"] == "Недостаточно данных для входа"
+        assert response.status_code == StatusCodes.CODE_400
+        assert response.json()["message"] == Messages.NOT_ENOUGH_DATA_TO_LOGIN
 
     @allure.title('Проверка невозможности Авторизоваться под несуществующим пользователем')  # декораторы
     @allure.description('Проверка, что если авторизоваться под несуществующим пользователем, запрос возвращает ошибку')
@@ -58,7 +59,7 @@ class TestLoginCourier:
 
         payload[wrong_data] = "wrong_data"
 
-        response = requests.post(urls.main_url + urls.Hands.login, json=payload)
+        response = requests.post(urls.MAIN_URL + urls.Hands.LOGIN, json=payload)
 
-        assert response.status_code == 404
-        assert response.json()["message"] == "Учетная запись не найдена"
+        assert response.status_code == StatusCodes.CODE_404
+        assert response.json()["message"] == Messages.ACCOUNT_NOT_FOUND
