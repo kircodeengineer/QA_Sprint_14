@@ -21,7 +21,7 @@ class TestLoginCourier:
 
         response = requests.post(urls.MAIN_URL + urls.Hands.LOGIN, json=payload)
 
-        assert response.status_code == 200
+        assert response.status_code == StatusCodes.CODE_200
         assert "id" in response.json()
 
 
